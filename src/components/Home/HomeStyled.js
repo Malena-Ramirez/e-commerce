@@ -2,7 +2,6 @@ import styled from "styled-components";
 
 export const WelcomeContainer = styled.section`
   padding: 0;
-  width: 100vw;
   box-sizing: border-box;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
