@@ -5,8 +5,11 @@ export const NavbarContainer = styled.nav`
 `;
 
 export const LogoHeader = styled.img`
-  width: 12em;
+  width: 7em;
   height: auto;
+  @media(min-width: 768px){
+    width: 12em;
+  }
 `;
 
 export const MenuItem = styled.li`
@@ -26,7 +29,11 @@ export const ItemDropdown = styled.span`
 `;
 
 export const ShoppingCartContainer = styled.div`
-  font-size: 2rem;
-  padding-right: 40px;
+  font-size: 1.5rem;
+  padding-right: 20px;
   color: #ca1707;
+  @media(min-width: 768px){
+    font-size: 2rem;
+    padding-right: 40px;
+  }
 `;
