@@ -3,7 +3,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Footer from '../components/Footer/Footer';
 import Navbar from '../components/Navbar/Navbar';
 import Home from '../containers/Home';
-// import SportDetail from '../containers/SportDetail';
+import Products from '../containers/Products';
 
 const AppRouter = () => {
   return (
@@ -11,7 +11,7 @@ const AppRouter = () => {
       <Navbar />
       <Switch>
         <Route exact path='/' component={Home} />
-        {/* <Route exact path='/:name' component={SportDetail} /> */}
+        <Route exact path='/productos' component={Products} />
       </Switch>
       <Footer />
     </BrowserRouter>
