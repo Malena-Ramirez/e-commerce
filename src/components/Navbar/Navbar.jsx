@@ -55,10 +55,10 @@ const Navbar = () => {
                     className='dropdown-menu dropdown-menu-dark'
                     aria-labelledby='navbarDropdown'
                   >
-                    <Link to='/' className='dropdown-item'>
+                    <Link to='/productos' className='dropdown-item'>
                       <MenuItem>Hombres</MenuItem>
                     </Link>
-                    <Link to='/' className='dropdown-item'>
+                    <Link to='/productos' className='dropdown-item'>
                       <MenuItem>Mujeres</MenuItem>
                     </Link>
                   </ul>
