@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import {
   CategoriesContainer,
   ImgCategory,
@@ -9,7 +10,10 @@ import {
 const Categories = () => {
   return (
     <CategoriesContainer>
-      <a href='productos.html'>
+      <Link
+        to={{ pathname: '/productos', state: { category: 'men' } }}
+        style={{ textDecoration: 'none' }}
+      >
         <ImgCategoryContainer>
           <ImgCategory
             className='img-fluid'
@@ -18,8 +22,11 @@ const Categories = () => {
           />
           <ImgCategoryCaption>Categoría hombres</ImgCategoryCaption>
         </ImgCategoryContainer>
-      </a>
-      <a href='productos.html'>
+      </Link>
+      <Link
+        to={{ pathname: '/productos', state: { category: 'women' } }}
+        style={{ textDecoration: 'none' }}
+      >
         <ImgCategoryContainer>
           <ImgCategory
             className='img-fluid'
@@ -28,7 +35,7 @@ const Categories = () => {
           />
           <ImgCategoryCaption>Categoría mujeres</ImgCategoryCaption>
         </ImgCategoryContainer>
-      </a>
+      </Link>
     </CategoriesContainer>
   );
 };
