@@ -11,7 +11,7 @@ import {
 const Navbar = () => {
   return (
     <header>
-      <NavbarContainer className='navbar navbar-expand-lg navbar-dark sticky-top'>
+      <NavbarContainer className='navbar navbar-expand-lg navbar-dark fixed-top'>
         <div className='container-fluid'>
           <Link to='/' className='navbar-brand'>
             <LogoHeader
