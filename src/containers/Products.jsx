@@ -1,13 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import AsideCategories from '../components/Products/AsideCategories';
+import ProductCardContainer from '../components/Products/ProductCardContainer';
 import {
-  ProductCard,
   ProductsContainer,
   ProductsList,
 } from '../components/Products/Products';
+import { useSelector } from 'react-redux';
 
 const Products = (props) => {
   const [isWomenSelected, setIsWomenSelected] = useState(false);
+  const [selectedProducts, setSelectedProducts] = useState([]);
+
+  const { products } = useSelector((state) => state.products);
 
   useEffect(() => {
     if (props.location.state) {
@@ -16,6 +20,14 @@ const Products = (props) => {
       setIsWomenSelected(women);
     }
   }, [props.location.state]);
+
+  useEffect(() => {
+    const category = isWomenSelected ? 'female' : 'male';
+    const productsFilter = products.filter(
+      (product) => product.category === category
+    );
+    setSelectedProducts(productsFilter);
+  }, [isWomenSelected, products]);
 
   return (
     <ProductsContainer>
@@ -26,36 +38,9 @@ const Products = (props) => {
         />
 
         <ProductsList className='col-8 row row-cols-1 row-cols-md-3 g-5 text-center'>
-          <div className='col'>
-            <ProductCard className='card'>
-              <a href='detalle_producto.html'>
-                <img
-                  src='https://i.imgur.com/JbU3GOV.jpg'
-                  className='card-img-top'
-                  alt='Imagen producto de categoría de mujeres'
-                />
-                <div className='card-body'>
-                  <h3 className='card-title'>Producto 1</h3>
-                  <p className='card-text'>$100.000</p>
-                </div>
-              </a>
-            </ProductCard>
-          </div>
-          <div className='col'>
-            <ProductCard className='card'>
-              <a href='detalle_producto.html'>
-                <img
-                  src='https://i.imgur.com/JbU3GOV.jpg'
-                  className='card-img-top'
-                  alt='Imagen producto de categoría de mujeres'
-                />
-                <div className='card-body'>
-                  <h3 className='card-title'>Producto 1</h3>
-                  <p className='card-text'>$100.000</p>
-                </div>
-              </a>
-            </ProductCard>
-          </div>
+          {selectedProducts.map((element) => (
+            <ProductCardContainer key={element.id} product={element} />
+          ))}
         </ProductsList>
       </div>
     </ProductsContainer>
