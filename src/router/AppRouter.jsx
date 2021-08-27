@@ -1,11 +1,17 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Footer from '../components/Footer/Footer';
 import Navbar from '../components/Navbar/Navbar';
 import Home from '../containers/Home';
 import Products from '../containers/Products';
+import { useDispatch } from 'react-redux';
+import { loadProductsAction } from '../actions/productsAction';
 
 const AppRouter = () => {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(loadProductsAction());
+  }, [dispatch]);
   return (
     <BrowserRouter>
       <Navbar />
