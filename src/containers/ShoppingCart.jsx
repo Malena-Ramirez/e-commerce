@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import ShoppingCartRow from '../components/ShoppingCart/ShoppingCartRow';
 import { useSelector } from 'react-redux';
 import {
@@ -11,6 +11,15 @@ import {
 
 const ShoppingCart = () => {
   const { cart } = useSelector((state) => state.cart);
+  const [total, setTotal] = useState(0);
+
+  useEffect(() => {
+    let sum = 0;
+    cart.forEach((element) => {
+      sum += element.quantity * element.product.price;
+    });
+    setTotal(sum);
+  }, [cart]);
 
   return (
     <ShoppingCartContainer className='container'>
@@ -34,7 +43,7 @@ const ShoppingCart = () => {
           <section>
             <TotalToPayText>
               <Total1>Total</Total1>
-              <Total2>$100.000</Total2>
+              <Total2>$ {total}</Total2>
             </TotalToPayText>
             <div className='button d-md-flex justify-content-md-end'>
               <button type='button' className='btn btn-primary btn-lg'>
