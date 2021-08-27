@@ -6,6 +6,7 @@ import Home from '../containers/Home';
 import Products from '../containers/Products';
 import { useDispatch } from 'react-redux';
 import { loadProductsAction } from '../actions/productsAction';
+import DetailProduct from '../containers/DetailProduct';
 
 const AppRouter = () => {
   const dispatch = useDispatch();
@@ -18,6 +19,7 @@ const AppRouter = () => {
       <Switch>
         <Route exact path='/' component={Home} />
         <Route exact path='/productos' component={Products} />
+        <Route exact path='/detalle-producto' component={DetailProduct} />
       </Switch>
       <Footer />
     </BrowserRouter>
