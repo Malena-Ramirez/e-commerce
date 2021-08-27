@@ -6,11 +6,18 @@ const initialState = {
 
 export const cartReducer = (state = initialState, action) => {
   switch (action.type) {
-    case types.CartAddNew:
+    case types.cartAddNew:
       return {
         ...state,
         cart: [action.payload, ...state.cart]
       };
+
+    case types.cartLoad:
+      return {
+        ...state,
+        cart: [...action.payload]
+      };
+
 
     default:
       return state;

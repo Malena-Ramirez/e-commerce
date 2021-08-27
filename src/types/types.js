@@ -3,5 +3,6 @@ export const types = {
 
   productsLoad: '[Products] load products',
 
-  CartAddNew: '[Cart] add new product',
+  cartAddNew: '[Cart] add new product',
+  cartLoad: '[Cart] load products in cart',
 }
