@@ -7,8 +7,10 @@ import {
   NavbarContainer,
   ShoppingCartContainer,
 } from './NavbarStyled';
+import { useSelector } from 'react-redux';
 
 const Navbar = () => {
+  const { cart } = useSelector((state) => state.cart);
   return (
     <header>
       <NavbarContainer className='navbar navbar-expand-lg navbar-dark fixed-top'>
@@ -67,7 +69,13 @@ const Navbar = () => {
             </div>
             <ShoppingCartContainer>
               <Link to='/carrito' style={{ color: 'inherit' }}>
-                <i className='bi bi-cart'></i>
+                <i className='bi bi-cart position-relative'>
+                  {cart.length > 0 && (
+                    <span className='position-absolute top-0 start-100 translate-middle p-1 bg-danger border border-light rounded-circle'>
+                      <span className='visually-hidden'>New alerts</span>
+                    </span>
+                  )}
+                </i>
               </Link>
             </ShoppingCartContainer>
           </div>
