@@ -30,67 +30,65 @@ const Register = () => {
           <h2>Regístrate</h2>
           <form onSubmit={handleRegister}>
             <div className='mb-3'>
-              <label for='name' className='form-label'>
+              <label for='exampleInputName1' className='form-label'>
                 Nombre
               </label>
               <input
-                id='name'
-                classname='form-control'
-                type='name'
+                type='text'
+                className='form-control'
+                id='exampleInputName1'
+                aria-describedby='nameHelp'
                 placeholder='Nombre'
                 name='name'
                 value={name}
                 onChange={handleInputChange}
-                required
               />
             </div>
             <div className='mb-3'>
-              <label for='email' className='form-label'>
+              <label for='exampleInputEmail1' className='form-label'>
                 Correo electrónico
               </label>
               <input
-                id='email'
-                classname='form-control'
                 type='email'
-                placeholder='Enter email'
+                className='form-control'
+                id='exampleInputEmail1'
+                aria-describedby='emailHelp'
+                placeholder='Correo electrónico'
                 name='email'
                 value={email}
                 onChange={handleInputChange}
-                required
               />
             </div>
             <div className='mb-3'>
-              <label for='password' className='form-label'>
+              <label for='exampleInputPassword1' className='form-label'>
                 Contraseña
               </label>
               <input
-                id='password'
-                classname='form-control'
                 type='password'
+                className='form-control'
+                id='exampleInputPassword1'
                 placeholder='Contraseña'
                 name='password'
                 value={password}
                 onChange={handleInputChange}
-                required
               />
             </div>
             <div className='mb-3'>
-              <label for='password2' className='form-label'>
-                Confirmar Contraseña
+              <label for='exampleInputPassword1' className='form-label'>
+                Confirmar contraseña
               </label>
               <input
-                id='password2'
-                classname='form-control'
                 type='password'
+                className='form-control'
+                id='exampleInputPassword1'
                 placeholder='Confirmar contraseña'
                 name='password2'
                 value={password2}
                 onChange={handleInputChange}
-                required
               />
             </div>
-            <button variant='primary' type='submit'>
-              Enviar
+            <button type='submit' className='btn btn-primary'>
+              Registrarse
             </button>
             <div className='mt-3 d-flex justify-content-center'>
               <span>¿Ya tienes una cuenta? </span>
