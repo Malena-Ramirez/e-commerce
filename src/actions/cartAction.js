@@ -1,18 +1,6 @@
 import { db } from "../firebase/firebaseConfig";
 import { types } from '../types/types';
 
-export const cartAction = (quantity, product) => {
-  return async (dispatch) => {
-
-    const newProduct = {
-      quantity,
-      product,
-    }
-
-    await db.collection(`/cart`).add(newProduct);
-  }
-}
-
 export const setCartProducts = (products) => {
   return {
     type: types.cartLoad,
@@ -21,7 +9,7 @@ export const setCartProducts = (products) => {
 }
 
 export const loadCartAction = () => {
-  return async (dispatch) => {
+  return async (dispatch, getState) => {
     const productsFirebase = await db.collection('/cart').get();
     const products = [];
     productsFirebase.forEach(element => {
@@ -30,7 +18,24 @@ export const loadCartAction = () => {
         ...element.data()
       })
     });
-    dispatch(setCartProducts(products));
 
+    const { id } = getState().login;
+    const userProducts = products.filter(product => product.userId === id)
+
+    dispatch(setCartProducts(userProducts));
+  }
+}
+
+export const cartAction = (quantity, product) => {
+  return async (dispatch, getState) => {
+    const { id } = getState().login;
+    const newProduct = {
+      quantity,
+      product,
+      userId: id
+    }
+
+    await db.collection(`/cart`).add(newProduct);
+    dispatch(loadCartAction());
   }
 }
