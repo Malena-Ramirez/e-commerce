@@ -11,6 +11,7 @@ import ShoppingCart from '../containers/ShoppingCart';
 import { PublicRoute } from './PublicRoute';
 import { PrivateRoute } from './PrivateRoute';
 import { AuthRouter } from './AuthRouter';
+import { login } from '../actions/loginAction';
 
 const AppRouter = () => {
   const dispatch = useDispatch();
@@ -20,7 +21,7 @@ const AppRouter = () => {
   useEffect(() => {
     firebase.auth().onAuthStateChanged(async (user) => {
       if (user?.uid) {
-        // dispatch(login(user.uid, user.displayName));
+        dispatch(login(user.uid, user.displayName));
         setIsLooggedIn(true);
         dispatch(loadProductsAction());
         dispatch(loadCartAction());
