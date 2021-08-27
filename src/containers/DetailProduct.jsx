@@ -10,6 +10,7 @@ import {
   AddButton,
 } from '../components/DetailProducts/DetailProductStyled';
 import { cartAction } from '../actions/cartAction';
+import Swal from 'sweetalert2';
 
 const DetailProduct = (props) => {
   const { product } = props.location.state;
@@ -25,6 +26,11 @@ const DetailProduct = (props) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(cartAction(quantity, product));
+    Swal.fire({
+      title: 'Agregado',
+      text: 'El producto ha sido agregado exitosamente.',
+      icon: 'success',
+    });
     reset();
   };
 
