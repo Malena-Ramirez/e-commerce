@@ -66,7 +66,7 @@ const Navbar = () => {
               </ul>
             </div>
             <ShoppingCartContainer>
-              <Link to='/' style={{ color: 'inherit' }}>
+              <Link to='/carrito' style={{ color: 'inherit' }}>
                 <i className='bi bi-cart'></i>
               </Link>
             </ShoppingCartContainer>

@@ -11,6 +11,7 @@ import {
 } from '../components/DetailProducts/DetailProductStyled';
 import { cartAction } from '../actions/cartAction';
 import Swal from 'sweetalert2';
+// import { useSelector } from 'react-redux';
 
 const DetailProduct = (props) => {
   const { product } = props.location.state;
@@ -20,6 +21,8 @@ const DetailProduct = (props) => {
   });
 
   const { quantity } = formValues;
+
+  // const { cart } = useSelector((state) => state.cart);
 
   const dispatch = useDispatch();
 

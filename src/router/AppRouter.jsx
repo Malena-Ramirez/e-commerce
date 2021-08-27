@@ -7,12 +7,17 @@ import Products from '../containers/Products';
 import { useDispatch } from 'react-redux';
 import { loadProductsAction } from '../actions/productsAction';
 import DetailProduct from '../containers/DetailProduct';
+import { loadCartAction } from '../actions/cartAction';
+import ShoppingCart from '../containers/ShoppingCart';
 
 const AppRouter = () => {
   const dispatch = useDispatch();
+
   useEffect(() => {
     dispatch(loadProductsAction());
+    dispatch(loadCartAction());
   }, [dispatch]);
+
   return (
     <BrowserRouter>
       <Navbar />
@@ -20,6 +25,7 @@ const AppRouter = () => {
         <Route exact path='/' component={Home} />
         <Route exact path='/productos' component={Products} />
         <Route exact path='/detalle-producto' component={DetailProduct} />
+        <Route exact path='/carrito' component={ShoppingCart} />
       </Switch>
       <Footer />
     </BrowserRouter>
