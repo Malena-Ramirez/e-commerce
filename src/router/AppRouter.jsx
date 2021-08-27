@@ -34,8 +34,8 @@ const AppRouter = () => {
   if (checking) {
     return (
       <div className='w-100 h-100 mt-5 d-flex justify-content-center lign-items-center'>
-        <div class='spinner-border text-secondary' role='status'>
-          <span class='visually-hidden'>Loading...</span>
+        <div className='spinner-border text-secondary' role='status'>
+          <span className='visually-hidden'>Loading...</span>
         </div>
       </div>
     );
