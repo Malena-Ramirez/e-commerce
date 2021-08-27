@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import AsideCategories from '../components/Products/AsideCategories';
 import {
   ProductCard,
@@ -6,11 +6,24 @@ import {
   ProductsList,
 } from '../components/Products/Products';
 
-const Products = () => {
+const Products = (props) => {
+  const [isWomenSelected, setIsWomenSelected] = useState(false);
+
+  useEffect(() => {
+    if (props.location.state) {
+      const { category } = props.location.state;
+      const women = category === 'women' ? true : false;
+      setIsWomenSelected(women);
+    }
+  }, [props.location.state]);
+
   return (
     <ProductsContainer>
       <div className='row'>
-        <AsideCategories />
+        <AsideCategories
+          isWomenSelected={isWomenSelected}
+          setIsWomenSelected={setIsWomenSelected}
+        />
 
         <ProductsList className='col-8 row row-cols-1 row-cols-md-3 g-5 text-center'>
           <div className='col'>

@@ -19,6 +19,7 @@ export const CategoriesTitle = styled.h1`
 
 export const CategorySubtitle = styled.h2`
   font-size: 1.4rem;
+  color: ${props => props.isSelected ? '#ca1707' : '#2d3b40'};
   &:hover{
     cursor: pointer;
     transition: all 0.8s;
