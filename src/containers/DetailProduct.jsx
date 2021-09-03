@@ -11,18 +11,16 @@ import {
 } from '../components/DetailProducts/DetailProductStyled';
 import { cartAction } from '../actions/cartAction';
 import Swal from 'sweetalert2';
-// import { useSelector } from 'react-redux';
 
 const DetailProduct = (props) => {
   const { product } = props.location.state;
+  console.log(product);
 
   const [formValues, handleInputChange, reset] = useForm({
     quantity: 1,
   });
 
   const { quantity } = formValues;
-
-  // const { cart } = useSelector((state) => state.cart);
 
   const dispatch = useDispatch();
 
@@ -45,13 +43,13 @@ const DetailProduct = (props) => {
             <ImgProduct
               className='float-end'
               src={product.image}
-              alt={product.name}
+              alt='Imagen del producto'
             />
           </figure>
         </section>
         <ProductInfo className='col-6 d-flex align-items-center'>
           <div>
-            <h1>{product.name}</h1>
+            <h1>{product.title}</h1>
             <p className='fs-4'>$ {product.price}</p>
             <ProductDescription className='product-text'>
               {product.description}

@@ -4,7 +4,6 @@ import { BrowserRouter, Switch, Redirect } from 'react-router-dom';
 import Home from '../containers/Home';
 import Products from '../containers/Products';
 import { useDispatch } from 'react-redux';
-import { loadProductsAction } from '../actions/productsAction';
 import DetailProduct from '../containers/DetailProduct';
 import { loadCartAction } from '../actions/cartAction';
 import ShoppingCart from '../containers/ShoppingCart';
@@ -23,7 +22,6 @@ const AppRouter = () => {
       if (user?.uid) {
         dispatch(login(user.uid, user.displayName));
         setIsLooggedIn(true);
-        dispatch(loadProductsAction());
         dispatch(loadCartAction());
       } else {
         setIsLooggedIn(false);

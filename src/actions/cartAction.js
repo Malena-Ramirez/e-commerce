@@ -1,3 +1,4 @@
+import Swal from "sweetalert2";
 import { db } from "../firebase/firebaseConfig";
 import { types } from '../types/types';
 
@@ -37,5 +38,46 @@ export const cartAction = (quantity, product) => {
 
     await db.collection(`/cart`).add(newProduct);
     dispatch(loadCartAction());
+  }
+}
+
+export const updateCart = (productInfo, quantity) => {
+  return async (dispatch) => {
+    const { id, ...cartToFirestore } = productInfo;
+    cartToFirestore.quantity = quantity;
+
+    await db.doc(`/cart/${id}`).update(cartToFirestore);
+
+    dispatch(loadCartAction());
+  }
+}
+
+export const deleteProduct = (id) => ({
+  type: types.cartProductDelete,
+  payload: id
+})
+
+export const startDeleting = (id) => {
+  return async (dispatch) => {
+    await Swal.fire({
+      title: '¿Desea eliminar el producto?',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Aceptar',
+      cancelButtonText: 'Cancelar',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire({
+          title: 'Eliminado',
+          text: 'El producto ha sido eliminado exitosamente.',
+          icon: 'success',
+        }
+        );
+        db.doc(`/cart/${id}`).delete();
+
+        dispatch(deleteProduct(id));
+        dispatch(loadCartAction());
+      }
+    })
   }
 }

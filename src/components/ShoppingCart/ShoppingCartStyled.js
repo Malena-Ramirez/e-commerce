@@ -49,3 +49,7 @@ export const Total2 = styled.p`
   grid-column: 4/5;
   justify-self: center;
 `;
+
+export const CartIcon = styled.i`
+  cursor: pointer;
+`;

@@ -5,7 +5,7 @@ import { ProductCard } from './Products';
 const ProductCardContainer = ({ product }) => {
   return (
     <div className='col'>
-      <ProductCard className='card'>
+      <ProductCard className='card h-100'>
         <Link
           to={{ pathname: '/detalle-producto', state: { product: product } }}
           style={{ textDecoration: 'none', color: 'inherit' }}
@@ -16,7 +16,7 @@ const ProductCardContainer = ({ product }) => {
             alt='Imagen de producto'
           />
           <div className='card-body'>
-            <h3 className='card-title'>{product.name}</h3>
+            <h3 className='card-title'>{product.title}</h3>
             <p className='card-text'>$ {product.price}</p>
           </div>
         </Link>

@@ -9,7 +9,7 @@ import { useSelector } from 'react-redux';
 
 const Products = (props) => {
   const [isWomenSelected, setIsWomenSelected] = useState(false);
-  const [selectedProducts, setSelectedProducts] = useState([]);
+  const [categoryProducts, setCategoryProducts] = useState([]);
 
   const { products } = useSelector((state) => state.products);
 
@@ -22,11 +22,12 @@ const Products = (props) => {
   }, [props.location.state]);
 
   useEffect(() => {
-    const category = isWomenSelected ? 'female' : 'male';
-    const productsFilter = products.filter(
-      (product) => product.category === category
-    );
-    setSelectedProducts(productsFilter);
+    const category = isWomenSelected ? 'women' : 'men';
+    const categoryUrl = `https://fakestoreapi.com/products/category/${category}'s clothing`;
+
+    fetch(categoryUrl)
+      .then((res) => res.json())
+      .then((json) => setCategoryProducts(json));
   }, [isWomenSelected, products]);
 
   return (
@@ -38,7 +39,7 @@ const Products = (props) => {
         />
 
         <ProductsList className='col-8 row row-cols-1 row-cols-md-3 g-5 text-center'>
-          {selectedProducts.map((element) => (
+          {categoryProducts.map((element) => (
             <ProductCardContainer key={element.id} product={element} />
           ))}
         </ProductsList>

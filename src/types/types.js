@@ -5,4 +5,5 @@ export const types = {
 
   cartAddNew: '[Cart] add new product',
   cartLoad: '[Cart] load products in cart',
+  cartProductDelete: '[Cart] delete product in cart',
 }

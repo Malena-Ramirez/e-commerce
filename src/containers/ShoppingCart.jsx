@@ -35,15 +35,16 @@ const ShoppingCart = () => {
             {cart.map((element) => (
               <ShoppingCartRow
                 key={element.id}
-                product={element.product}
+                productInfo={element}
                 quantity={element.quantity}
+                id={element.id}
               />
             ))}
           </section>
           <section>
             <TotalToPayText>
               <Total1>Total</Total1>
-              <Total2>$ {total}</Total2>
+              <Total2>$ {total.toFixed(2)}</Total2>
             </TotalToPayText>
             <div className='button d-md-flex justify-content-md-end'>
               <button type='button' className='btn btn-primary btn-lg'>
