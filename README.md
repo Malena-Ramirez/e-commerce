@@ -23,6 +23,11 @@ $ npm install
 - Styled Components
 - Bootstrap
 
+## Up and running
+1. Run ```$ npm start```
+2. Visit http://localhost:3000
+3. Enjoy :)
+
 ## Author
 
 **Malena Ramírez Uribe** - [@Malena-Ramirez](https://github.com/Malena-Ramirez)
