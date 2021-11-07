@@ -1,6 +1,9 @@
 # Fakery - e-commerce
 
 Fakeary is an e-commerce application, built with ReactJs. 
+
+Find it [here](https://fakery-ecommerce.netlify.app/).
+
 ## Set up
 
 You'll need Node.js on your local development machine.
