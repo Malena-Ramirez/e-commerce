@@ -14,7 +14,6 @@ import Swal from 'sweetalert2';
 
 const DetailProduct = (props) => {
   const { product } = props.location.state;
-  console.log(product);
 
   const [formValues, handleInputChange, reset] = useForm({
     quantity: 1,
