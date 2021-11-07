@@ -5,13 +5,10 @@ import {
   ProductsContainer,
   ProductsList,
 } from '../components/Products/Products';
-import { useSelector } from 'react-redux';
 
 const Products = (props) => {
   const [isWomenSelected, setIsWomenSelected] = useState(false);
   const [categoryProducts, setCategoryProducts] = useState([]);
-
-  const { products } = useSelector((state) => state.products);
 
   useEffect(() => {
     if (props.location.state) {
@@ -28,7 +25,7 @@ const Products = (props) => {
     fetch(categoryUrl)
       .then((res) => res.json())
       .then((json) => setCategoryProducts(json));
-  }, [isWomenSelected, products]);
+  }, [isWomenSelected]);
 
   return (
     <ProductsContainer>
