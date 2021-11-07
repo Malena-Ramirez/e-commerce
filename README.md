@@ -10,7 +10,7 @@ You'll need Node.js on your local development machine.
 git clone https://github.com/Malena-Ramirez/e-commerce.git
 ```
 
-2. Install the dependencies
+2. Install the dependencies (node version: 14.17.0)
 
 ```
 $ npm install
@@ -22,6 +22,11 @@ $ npm install
 - Firebase
 - Styled Components
 - Bootstrap
+
+## Up and running
+1. Run ```$ npm start```
+2. Visit http://localhost:3000
+3. Enjoy :)
 
 ## Author
 
